@@ -77,7 +77,28 @@ public class GameManager : MonoBehaviour
         else if(score==120){
             CheckShop();
         }
-       
+       if(isUnlimitedLives==true){
+        livesTxt.text="+99999999";
+       }
+       if(score>=highScore){
+        highScore=score;
+        PlayerPrefs.SetInt("HighScore",highScore);
+        PlayerPrefs.Save();
+       }
+       if(lives<=0){
+        SceneManager.LoadScene("GameOver");
+       }
+
+       if(shopController.X2live_purchased==true){
+        lives=lives*2;
+       }else if(shopController.X5live_purchased==true){
+        lives=lives*5;
+       }else if(shopController.X10live_purchased==true){
+        lives=lives*10;
+       }
+
+       livesTxt.text=lives.ToString();
+       ScoreTxt.text=score.ToString();
     }
 
          void CheckShop(){
@@ -103,5 +124,34 @@ public class GameManager : MonoBehaviour
             bgImg.sprite=pingpongBgImg;
         }
     }
+    public void AddScore(){
+        if(isDoubleScoreActive){
+            score+=2;
+        }
+        else{
+            score++;
+        }
+
+    }
+
+    public void LoseLife(){
+        if(!isUnlimitedLives){
+            lives--;
+        }
+        else{
+            Debug.Log("Life not reduced due to unlimited mode.");
+        }
+    }
+    
+    public IEnumerator DoubleScoreCoroutine(float duration){
+        isDoubleScoreActive=true;
+        yield return new WaitForSeconds(duration);
+        isDoubleScoreActive=false;
+    }
+    public void SetUnlimitedLives(){
+        livesTxt.text="+99999999";
+        isUnlimitedLives=true;
+    }
+
 }
 
