@@ -7,7 +7,6 @@ public class HighScore : MonoBehaviour
 {
     public TMP_Text highScoreTxt;
 
-    // Update is called once per frame
     void Update()
     {
         int highScore =PlayerPrefs.GetInt("HighScore");

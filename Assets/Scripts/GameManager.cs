@@ -89,13 +89,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameOver");
        }
 
-       if(shopController.X2live_purchased==true){
+     /*  if(shopController.X2live_purchased==true){
         lives=lives*2;
        }else if(shopController.X5live_purchased==true){
         lives=lives*5;
        }else if(shopController.X10live_purchased==true){
         lives=lives*10;
        }
+       */
 
        livesTxt.text=lives.ToString();
        ScoreTxt.text=score.ToString();
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour
 
          void CheckShop(){
             SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
+            /*
         if(shopController.Baseball_purchased==true && baseball==false){
             baseball=true;
             ballImage.sprite=baseballImg;
@@ -123,6 +125,7 @@ public class GameManager : MonoBehaviour
             ballImage.sprite=pingpongImg;
             bgImg.sprite=pingpongBgImg;
         }
+        */
     }
     public void AddScore(){
         if(isDoubleScoreActive){
