@@ -39,7 +39,7 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // HandleInput();
+       HandleInput();
         if(!isSpeedBoosted && rb.velocity .magnitude>maxSpeed){
             rb.velocity =rb.velocity .normalized*maxSpeed;
         }
@@ -50,12 +50,13 @@ public class BallController : MonoBehaviour
             Touch touch=Input.GetTouch(0);
             Vector2 touchPos=Camera.main.ScreenToWorldPoint(touch.position);
 
+            //Mobile Touch
             if(touch.phase==TouchPhase.Began){
                 RaycastHit2D hit=Physics2D.Raycast(touchPos, Vector2.zero);
                 if(hit.collider != null && hit.collider.gameObject == gameObject){
                     isDragging=true;
                     dragStartPos=touchPos;
-                   // KickBall();
+                   KickBall();
                 }
             }
             else if(touch.phase==TouchPhase.Moved && isDragging){
@@ -67,11 +68,12 @@ public class BallController : MonoBehaviour
                 isDragging=false;
             }
         }
+        // click Mouse
         else if(Input.GetMouseButton(0)){
             Vector2 mousePos=Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit =Physics2D.Raycast(mousePos, Vector2.zero);
             if(hit.collider != null && hit.collider.gameObject == gameObject){
-               // KickBall();
+               KickBall();
                isDragging=true;
                dragStartPos=mousePos;
             }

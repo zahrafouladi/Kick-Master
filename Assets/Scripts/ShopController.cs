@@ -32,6 +32,14 @@ public class ShopController : MonoBehaviour
 
     void Start()
     {
+        if(Baseball_pur_obj !=null &&
+            AmericanFootball_pur_obj !=null &&
+            Volleyball_pur_obj != null &&
+            Pingpong_pur_obj != null &&
+            X2live_pur_obj != null &&
+            X5live_pur_obj != null &&
+            X10live_pur_obj != null ){
+            
         Baseball_pur_obj.SetActive(false);
         AmericanFootball_pur_obj.SetActive(false);
         Volleyball_pur_obj.SetActive(false);
@@ -39,6 +47,8 @@ public class ShopController : MonoBehaviour
         X2live_pur_obj.SetActive(false);
         X5live_pur_obj.SetActive(false);
         X10live_pur_obj.SetActive(false);
+            }
+        
         
     }
     
