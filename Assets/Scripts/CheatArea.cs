@@ -53,7 +53,6 @@ public class CheatArea : MonoBehaviour
         isUnlimitedMode=true;
         
         if(gameManager != null){
-            gameManager.DoubleScore(999999f);
             gameManager.SetUnlimitedLives();
         }
     }

@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isUnlimitedLives){
+        lives=999999;
+       }
+
         SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
         if(score==20){
             ballImage.sprite=basketballImg;
@@ -77,14 +81,15 @@ public class GameManager : MonoBehaviour
         else if(score==120){
             CheckShop();
         }
-       if(isUnlimitedLives==true){
-        livesTxt.text="+99999999";
-       }
+
+       
+
        if(score>=highScore){
         highScore=score;
         PlayerPrefs.SetInt("HighScore",highScore);
         PlayerPrefs.Save();
        }
+       
        if(lives<=0){
         SceneManager.LoadScene("GameOver");
        }
@@ -157,8 +162,8 @@ public class GameManager : MonoBehaviour
         isDoubleScoreActive=false;
     }
     public void SetUnlimitedLives(){
-        livesTxt.text="+99999999";
         isUnlimitedLives=true;
+        Debug.Log("Unlimited lives activated!");
     }
 
 }
