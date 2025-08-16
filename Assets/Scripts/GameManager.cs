@@ -146,6 +146,11 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    public void DoubleScore(float duration=10f){
+        if(!isDoubleScoreActive){
+            StartCoroutine(DoubleScoreCoroutine(duration));
+        }
+    }
     public IEnumerator DoubleScoreCoroutine(float duration){
         isDoubleScoreActive=true;
         yield return new WaitForSeconds(duration);

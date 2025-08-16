@@ -69,7 +69,7 @@ public class BallController : MonoBehaviour
             }
         }
         // click Mouse
-        else if(Input.GetMouseButton(0)){
+        else if(Input.GetMouseButtonDown(0)){
             Vector2 mousePos=Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit =Physics2D.Raycast(mousePos, Vector2.zero);
             if(hit.collider != null && hit.collider.gameObject == gameObject){
