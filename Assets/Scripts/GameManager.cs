@@ -52,6 +52,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(isUnlimitedLives){
+        lives=999999;
+       }
+
         SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
         if(score==20){
             ballImage.sprite=basketballImg;
@@ -77,25 +81,27 @@ public class GameManager : MonoBehaviour
         else if(score==120){
             CheckShop();
         }
-       if(isUnlimitedLives==true){
-        livesTxt.text="+99999999";
-       }
+
+       
+
        if(score>=highScore){
         highScore=score;
         PlayerPrefs.SetInt("HighScore",highScore);
         PlayerPrefs.Save();
        }
+       
        if(lives<=0){
         SceneManager.LoadScene("GameOver");
        }
 
-       if(shopController.X2live_purchased==true){
+     /*  if(shopController.X2live_purchased==true){
         lives=lives*2;
        }else if(shopController.X5live_purchased==true){
         lives=lives*5;
        }else if(shopController.X10live_purchased==true){
         lives=lives*10;
        }
+       */
 
        livesTxt.text=lives.ToString();
        ScoreTxt.text=score.ToString();
@@ -103,6 +109,7 @@ public class GameManager : MonoBehaviour
 
          void CheckShop(){
             SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
+            /*
         if(shopController.Baseball_purchased==true && baseball==false){
             baseball=true;
             ballImage.sprite=baseballImg;
@@ -123,6 +130,7 @@ public class GameManager : MonoBehaviour
             ballImage.sprite=pingpongImg;
             bgImg.sprite=pingpongBgImg;
         }
+        */
     }
     public void AddScore(){
         if(isDoubleScoreActive){
@@ -143,14 +151,19 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    public void DoubleScore(float duration=10f){
+        if(!isDoubleScoreActive){
+            StartCoroutine(DoubleScoreCoroutine(duration));
+        }
+    }
     public IEnumerator DoubleScoreCoroutine(float duration){
         isDoubleScoreActive=true;
         yield return new WaitForSeconds(duration);
         isDoubleScoreActive=false;
     }
     public void SetUnlimitedLives(){
-        livesTxt.text="+99999999";
         isUnlimitedLives=true;
+        Debug.Log("Unlimited lives activated!");
     }
 
 }
