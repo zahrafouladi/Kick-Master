@@ -18,8 +18,8 @@ public class BallController : MonoBehaviour
     private float defaultMaxSpeed;
     public GameObject timerChangespeed;
     public GameObject timerDoubleScore;
-    public Timer timersliderSpeed;
-    public Timer timersliderscore;
+  //  public Timer timersliderSpeed;
+   // public Timer timersliderscore;
     public GameManager gamemanager;
     public AudioSource ballKick;
     public AudioSource loselifesound;
@@ -40,8 +40,8 @@ public class BallController : MonoBehaviour
     void Update()
     {
        // HandleInput();
-        if(!isSpeedBoosted && rb.linearVelocity.magnitude>maxSpeed){
-            rb.linearVelocity=rb.linearVelocity.normalized*maxSpeed;
+        if(!isSpeedBoosted && rb.velocity .magnitude>maxSpeed){
+            rb.velocity =rb.velocity .normalized*maxSpeed;
         }
         
     }
@@ -86,4 +86,36 @@ public class BallController : MonoBehaviour
             isDragging=false;
         }
     }
+
+    void KickBall(){
+    float boostedKickForce =kickForce*kickForceBoostMultiplier;
+    rb.velocity =new Vector2(rb.velocity .x,boostedKickForce);
+    gamemanager.AddScore();
+    ballKick.Play();
+    }
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("Ground")){
+            loselifesound.Play();
+            isGrounded=true;
+            gamemanager.LoseLife();
+            transform.position=startPosition;
+            rb.velocity =Vector2.zero;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("Ground")){
+            isGrounded=false;
+        }
+    }
+
+
+    IEnumerator ResetSpeedBoost(float duration){
+
+        yield return new WaitForSeconds(duration);
+        isSpeedBoosted=false;
+        maxSpeed=defaultMaxSpeed;
+    }
+
+    
 }
