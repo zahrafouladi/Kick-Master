@@ -19,8 +19,10 @@ public class ItemController : MonoBehaviour
         if(potionObject == null){
             return;
         }
-
+        Debug.Log($"Starting PotionSpawner. Spawner: {gameObject.name}, Active: {gameObject.activeSelf}, Potion: {potionObject.name}");
+        
         potionObject.SetActive(false);
+        Debug.Log($"Potion '{potionObject.name}' deactivated at start.");
 
         StartCoroutine(SpawnRoutine());
         
@@ -28,15 +30,16 @@ public class ItemController : MonoBehaviour
 
     IEnumerator SpawnRoutine(){
         float initialDelay =Random.Range(minInitialDelay, maxInitialDelay);
+        Debug.Log($"Waiting for initial delay: {initialDelay} seconds");       
         yield return new WaitForSeconds(initialDelay);
 
         while(true){
             float randomX =Random.Range(spawnAreaMin.x, spawnAreaMax.x);
             float randomY =Random.Range(spawnAreaMin.y, spawnAreaMax.y);
-
             potionObject.transform.position=new Vector2(randomX, randomY);
 
-            
+            potionObject.SetActive(true);
+            Debug.Log($"Potion '{potionObject.name}' activated at position ({randomX}, {randomY}), Active: {potionObject.activeSelf}");
 
             SpriteRenderer spriteRenderer=potionObject.GetComponent<SpriteRenderer>();
             if(spriteRenderer == null || spriteRenderer.sprite == null){
@@ -50,7 +53,11 @@ public class ItemController : MonoBehaviour
             yield return new WaitForSeconds(displayDuration);
 
             potionObject.SetActive(false);
+            Debug.Log($"Potion '{potionObject.name}' deactivated after {displayDuration} seconds.");
 
+            float spawnDelay =Random.Range(minSpawnInterval, maxSpawnInterval);
+            Debug.Log($"Next spawn in: {spawnDelay} seconds");
+            yield return new WaitForSeconds(spawnDelay);
         }
     }
 
