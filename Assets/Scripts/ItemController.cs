@@ -17,8 +17,10 @@ public class ItemController : MonoBehaviour
     void Start()
     {
         if(potionObject == null){
+            Debug.LogError("PotionObject is not assigned in Inspector!");
             return;
         }
+
         Debug.Log($"Starting PotionSpawner. Spawner: {gameObject.name}, Active: {gameObject.activeSelf}, Potion: {potionObject.name}");
         
         potionObject.SetActive(false);
@@ -27,6 +29,7 @@ public class ItemController : MonoBehaviour
         StartCoroutine(SpawnRoutine());
         
     }
+    
 
     IEnumerator SpawnRoutine(){
         float initialDelay =Random.Range(minInitialDelay, maxInitialDelay);

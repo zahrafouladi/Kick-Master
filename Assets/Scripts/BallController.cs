@@ -112,8 +112,9 @@ public class BallController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other){
-        itemsound.Play();
+        
         if(other.CompareTag("ScoreBooster")){
+            itemsound.Play();
             gamemanager.DoubleScore();
             other.gameObject.SetActive(false);
             timerDoubleScore.SetActive(true);
@@ -122,6 +123,7 @@ public class BallController : MonoBehaviour
             }
         }
         else if (other.CompareTag("SpeedChanger")){
+            itemsound.Play();
             rb.velocity *=speedBoostMultiplier;
             isSpeedBoosted=true;
             maxSpeed*=speedBoostMultiplier;

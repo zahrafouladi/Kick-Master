@@ -57,28 +57,28 @@ public class GameManager : MonoBehaviour
        }
 
         SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
-        if(score==20){
+        if(score>=20){
             ballImage.sprite=basketballImg;
             bgImg.sprite=basketballBgImg;
             footballSound.Stop();
             basketballSound.Play();
         }
-        else if(score==40){
+        else if(score>=40){
             ballImage.sprite=tennisBallImg;
             bgImg.sprite=tennisBgImg;
             basketballSound.Stop();
             tennisSound.Play();
         }
-        else if(score==60){
+        else if(score>=60){
             CheckShop();
         }
-        else if(score==80){
+        else if(score>=80){
             CheckShop();
         }
-        else if(score==100){
+        else if(score>=100){
             CheckShop();
         }
-        else if(score==120){
+        else if(score>=120){
             CheckShop();
         }
 
