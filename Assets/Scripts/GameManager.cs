@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
     public AudioSource footballSound;
     public AudioSource basketballSound;
     public AudioSource tennisSound;
+    public AudioSource baseballSound;
+    public AudioSource americanfootballSound;
+    public AudioSource volleyballSound;
+    public AudioSource pingpongSound;
 
     private ShopController shopController;
 
@@ -94,14 +98,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("GameOver");
        }
 
-     /*  if(shopController.X2live_purchased==true){
+       if(shopController.X2live_purchased==true){
         lives=lives*2;
        }else if(shopController.X5live_purchased==true){
         lives=lives*5;
        }else if(shopController.X10live_purchased==true){
         lives=lives*10;
        }
-       */
+       
 
        livesTxt.text=lives.ToString();
        ScoreTxt.text=score.ToString();
@@ -109,28 +113,36 @@ public class GameManager : MonoBehaviour
 
          void CheckShop(){
             SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
-            /*
+          
         if(shopController.Baseball_purchased==true && baseball==false){
             baseball=true;
             ballImage.sprite=baseballImg;
             bgImg.sprite=baseballBgImg;
+            stopSounds();
+            baseballSound.Play();
         }
         else if(shopController.AmericanFootball_purchased==true && americanfootball==false){
             americanfootball=true;
             ballImage.sprite=americanfootballImg;
             bgImg.sprite=americanfootballBgImg;
+            stopSounds();
+            americanfootballSound.Play();
         }
         else if(shopController.Volleyball_purchased==true && volleyball==false){
             volleyball=true;
             ballImage.sprite=volleyballImg;
             bgImg.sprite=volleyballBgImg;
+            stopSounds();
+            volleyballSound.Play();
         }
         else if(shopController.Pingpong_purchased==true && pingpong==false){
             pingpong=true;
             ballImage.sprite=pingpongImg;
             bgImg.sprite=pingpongBgImg;
+            stopSounds();
+            pingpongSound.Play();
         }
-        */
+       
     }
     public void AddScore(){
         if(isDoubleScoreActive){
@@ -164,6 +176,13 @@ public class GameManager : MonoBehaviour
     public void SetUnlimitedLives(){
         isUnlimitedLives=true;
         Debug.Log("Unlimited lives activated!");
+    }
+
+    void stopSounds(){
+        baseballSound.Stop();
+        americanfootballSound.Stop();
+        volleyballSound.Stop();
+        pingpongSound.Stop();
     }
 
 }

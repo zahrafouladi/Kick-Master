@@ -30,6 +30,8 @@ public class ShopController : MonoBehaviour
     public GameObject X5liveBtn;
     public GameObject X10liveBtn;
 
+    public AudioSource dropCoin;
+
     void Start()
     {
         if(Baseball_pur_obj !=null &&
@@ -89,24 +91,31 @@ public class ShopController : MonoBehaviour
 
     public void BaseBall(){
         Baseball_purchased=true;
+        dropCoin.Play();
     }
     public void AmericanFootball()
     {
         AmericanFootball_purchased=true;
+        dropCoin.Play();
     }
     public void VolleyBall(){
         Volleyball_purchased=true;
+        dropCoin.Play();
     }
     public void PingPong(){
         Pingpong_purchased=true;
+        dropCoin.Play();
     }
     public void X2live(){
         X2live_purchased=true;
+        dropCoin.Play();
     }
     public void X5live(){
         X5live_purchased=true;
+        dropCoin.Play();
     }
     public void X10live(){
         X10live_purchased=true;
+        dropCoin.Play();
     }
 }
