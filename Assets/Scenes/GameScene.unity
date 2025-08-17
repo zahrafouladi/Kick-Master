@@ -1298,6 +1298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 759301161}
   - component: {fileID: 759301160}
+  - component: {fileID: 759301162}
   m_Layer: 0
   m_Name: Change Speed Item
   m_TagString: Untagged
@@ -1364,14 +1365,34 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759301159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4, y: -0.14, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4, y: -0.14000002, z: 0}
   m_LocalScale: {x: 0.12182892, y: 0.12082616, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &759301162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759301159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a18332dc6a340b418b07f19c4c94206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionObject: {fileID: 0}
+  spawnAreaMin: {x: -2.2, y: 4}
+  spawnAreaMax: {x: 2.2, y: -3}
+  minInitialDelay: 10
+  maxInitialDelay: 15
+  displayDuration: 7
+  minSpawnInterval: 20
+  maxSpawnInterval: 40
 --- !u!1 &913039321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,6 +2732,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629905220}
   - component: {fileID: 1629905219}
+  - component: {fileID: 1629905221}
   m_Layer: 0
   m_Name: Doubling Score Item
   m_TagString: Untagged
@@ -2777,7 +2799,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629905218}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.59, y: 1.39, z: 0}
   m_LocalScale: {x: 0.13418737, y: 0.12211056, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2785,6 +2807,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629905221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629905218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a18332dc6a340b418b07f19c4c94206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionObject: {fileID: 0}
+  spawnAreaMin: {x: -2.2, y: 4}
+  spawnAreaMax: {x: 2.2, y: -3}
+  minInitialDelay: 10
+  maxInitialDelay: 15
+  displayDuration: 7
+  minSpawnInterval: 20
+  maxSpawnInterval: 40
 --- !u!1 &1647016196
 GameObject:
   m_ObjectHideFlags: 0
