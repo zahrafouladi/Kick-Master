@@ -18,8 +18,8 @@ public class BallController : MonoBehaviour
     private float defaultMaxSpeed;
     public GameObject timerChangespeed;
     public GameObject timerDoubleScore;
-  //  public Timer timersliderSpeed;
-  //  public Timer timersliderscore;
+    public Timer timersliderSpeed;
+    public Timer timersliderscore;
     public GameManager gamemanager;
     public AudioSource ballKick;
     public AudioSource loselifesound;
