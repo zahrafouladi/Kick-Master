@@ -12,9 +12,13 @@ public class GameManager : MonoBehaviour
     public int highScore=0;
     private bool isDoubleScoreActive=false;
     private bool isUnlimitedLives=false;
+    private int currentStageIndex = -1;
 
     public GameObject ballImg;
     public Image bgImg;
+   
+    public Sprite footballImg;
+    public Sprite footballBgImg;
     public Sprite basketballImg;
     public Sprite basketballBgImg;
     public Sprite tennisBallImg;
@@ -28,10 +32,6 @@ public class GameManager : MonoBehaviour
     public Sprite pingpongImg;
     public Sprite pingpongBgImg;
 
-    private bool baseball=false;
-    private bool americanfootball=false;
-    private bool volleyball=false;
-    private bool pingpong=false;
     
     public TMP_Text livesTxt;
     public TMP_Text ScoreTxt;
@@ -44,49 +44,71 @@ public class GameManager : MonoBehaviour
     public AudioSource volleyballSound;
     public AudioSource pingpongSound;
 
-    private ShopController shopController;
+
+    public bool Baseball_purchased ;
+    public bool AmericanFootball_purchased ;
+    public bool Volleyball_purchased ;
+    public bool Pingpong_purchased ;
+    public bool X2live_purchased ;
+    public bool X5live_purchased  ;
+    public bool X10live_purchased ;
+
+    private List<Stage> stages=new List<Stage>();
+    [System.Serializable]
+    public class Stage{
+        public string name;
+        public Sprite ball;
+        public Sprite bg;
+        public AudioSource sound;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        footballSound.Play();
-        
+         Baseball_purchased=PlayerPrefs.GetInt("Baseball_purchased",0) == 1;
+        AmericanFootball_purchased=PlayerPrefs.GetInt("AmericanFootball_purchased",0) == 1;
+        Volleyball_purchased=PlayerPrefs.GetInt("Volleyball_purchased",0) == 1;
+        Pingpong_purchased=PlayerPrefs.GetInt("Pingpong_purchased",0) == 1;
+
+        X2live_purchased=PlayerPrefs.GetInt("X2live_purchased",0) == 1;
+        X5live_purchased=PlayerPrefs.GetInt("X5live_purchased",0) == 1;
+        X10live_purchased=PlayerPrefs.GetInt("X10live_purchased",0) == 1;
+
+        stages.Clear();
+        stages.Add(new Stage(){ name="Football", ball=footballImg, bg=footballBgImg, sound=footballSound});
+        stages.Add(new Stage(){ name="Basketball", ball=basketballImg, bg=basketballBgImg, sound=basketballSound});
+        stages.Add(new Stage(){ name="Tennis", ball=tennisBallImg, bg=tennisBgImg, sound=tennisSound});
+
+        if(Baseball_purchased)  stages.Add(new Stage(){ name="Baseball", ball=baseballImg, bg=baseballBgImg, sound=baseballSound});
+        if(AmericanFootball_purchased)  stages.Add(new Stage(){ name="AmericanFootball", ball=americanfootballImg, bg=americanfootballBgImg, sound=americanfootballSound});
+        if(Volleyball_purchased)  stages.Add(new Stage(){ name="Volleyball", ball=volleyballImg, bg=volleyballBgImg, sound=volleyballSound});
+        if(Pingpong_purchased)  stages.Add(new Stage(){ name="Pingpong", ball=pingpongImg, bg=pingpongBgImg, sound=pingpongSound});
+
+        SetStage(0);
+
+        if(X2live_purchased) lives = lives*2;
+        if(X5live_purchased) lives = lives*5;
+        if(X10live_purchased) lives = lives*10;
+
+         highScore =PlayerPrefs.GetInt("HighScore");
+         livesTxt.text=lives.ToString();
+         ScoreTxt.text=score.ToString();       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isUnlimitedLives){
-        lives=999999;
-       }
+        livesTxt.text=lives.ToString();
+        ScoreTxt.text=score.ToString();
+
+        if(isUnlimitedLives) lives=999999;
+
+        int stageIndex=score/20;
+        if(stageIndex>=stages.Count) stageIndex=stages.Count-1;
+
+        SetStage(stageIndex);
 
         SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
-        if(score>=20){
-            ballImage.sprite=basketballImg;
-            bgImg.sprite=basketballBgImg;
-            footballSound.Stop();
-            basketballSound.Play();
-        }
-        else if(score>=40){
-            ballImage.sprite=tennisBallImg;
-            bgImg.sprite=tennisBgImg;
-            basketballSound.Stop();
-            tennisSound.Play();
-        }
-        else if(score>=60){
-            CheckShop();
-        }
-        else if(score>=80){
-            CheckShop();
-        }
-        else if(score>=100){
-            CheckShop();
-        }
-        else if(score>=120){
-            CheckShop();
-        }
-
-       
 
        if(score>=highScore){
         highScore=score;
@@ -97,53 +119,24 @@ public class GameManager : MonoBehaviour
        if(lives<=0){
         SceneManager.LoadScene("GameOver");
        }
-
-       if(shopController.X2live_purchased==true){
-        lives=lives*2;
-       }else if(shopController.X5live_purchased==true){
-        lives=lives*5;
-       }else if(shopController.X10live_purchased==true){
-        lives=lives*10;
-       }
-       
-
-       livesTxt.text=lives.ToString();
-       ScoreTxt.text=score.ToString();
+      
     }
 
-         void CheckShop(){
-            SpriteRenderer ballImage=ballImg.GetComponent<SpriteRenderer>();
-          
-        if(shopController.Baseball_purchased==true && baseball==false){
-            baseball=true;
-            ballImage.sprite=baseballImg;
-            bgImg.sprite=baseballBgImg;
-            stopSounds();
-            baseballSound.Play();
-        }
-        else if(shopController.AmericanFootball_purchased==true && americanfootball==false){
-            americanfootball=true;
-            ballImage.sprite=americanfootballImg;
-            bgImg.sprite=americanfootballBgImg;
-            stopSounds();
-            americanfootballSound.Play();
-        }
-        else if(shopController.Volleyball_purchased==true && volleyball==false){
-            volleyball=true;
-            ballImage.sprite=volleyballImg;
-            bgImg.sprite=volleyballBgImg;
-            stopSounds();
-            volleyballSound.Play();
-        }
-        else if(shopController.Pingpong_purchased==true && pingpong==false){
-            pingpong=true;
-            ballImage.sprite=pingpongImg;
-            bgImg.sprite=pingpongBgImg;
-            stopSounds();
-            pingpongSound.Play();
-        }
-       
+    void SetStage(int index){
+        if(index < 0 || index >= stages.Count) return;
+
+       if(currentStageIndex == index) return; 
+           currentStageIndex = index;
+
+        Stage s=stages[index];
+         ballImg.GetComponent<SpriteRenderer>().sprite = s.ball;
+        bgImg.sprite = s.bg;
+
+        StopAllSounds();
+        if(s.sound != null) s.sound.Play();
+        
     }
+
     public void AddScore(){
         if(isDoubleScoreActive){
             score+=2;
@@ -178,7 +171,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("Unlimited lives activated!");
     }
 
-    void stopSounds(){
+    void StopAllSounds(){
+        footballSound.Stop();
+        basketballSound.Stop();
+        tennisSound.Stop();
         baseballSound.Stop();
         americanfootballSound.Stop();
         volleyballSound.Stop();

@@ -351,71 +351,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143827232}
   m_CullTransparentMesh: 1
---- !u!1 &184243435
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 184243437}
-  - component: {fileID: 184243436}
-  m_Layer: 0
-  m_Name: AIP
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &184243436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184243435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5576afb1a32c28d459aa0c69b5bf105b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Baseball_purchased: 0
-  AmericanFootball_purchased: 0
-  Volleyball_purchased: 0
-  Pingpong_purchased: 0
-  X2live_purchased: 0
-  X5live_purchased: 0
-  X10live_purchased: 0
-  Baseball_pur_obj: {fileID: 0}
-  AmericanFootball_pur_obj: {fileID: 0}
-  Volleyball_pur_obj: {fileID: 0}
-  Pingpong_pur_obj: {fileID: 0}
-  X2live_pur_obj: {fileID: 0}
-  X5live_pur_obj: {fileID: 0}
-  X10live_pur_obj: {fileID: 0}
-  BaseballBtn: {fileID: 0}
-  AmericanfootballBtn: {fileID: 0}
-  VolleyballBtn: {fileID: 0}
-  PingpongBtn: {fileID: 0}
-  X2liveBtn: {fileID: 0}
-  X5liveBtn: {fileID: 0}
-  X10liveBtn: {fileID: 0}
---- !u!4 &184243437
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184243435}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8911226, y: 0.13220574, z: -0.58772665}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &226382544
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +874,7 @@ Transform:
   - {fileID: 1629905220}
   - {fileID: 759301161}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1058,9 +993,9 @@ RectTransform:
   m_Father: {fileID: 300575177}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 503, y: 987}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 503, y: -104.99994}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &546601171
@@ -1500,7 +1435,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913039321}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.57, y: 0.9474, z: -0.028161613}
+  m_LocalPosition: {x: -2.26, y: 0.9474, z: -0.028161613}
   m_LocalScale: {x: 1, y: 10.0452, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1800,8 +1735,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179748886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.76, y: -3.55, z: -0.028161613}
-  m_LocalScale: {x: 5.59, y: 1.0996017, z: 1}
+  m_LocalPosition: {x: 0.76, y: -3.4591, z: -0.028161613}
+  m_LocalScale: {x: 5.59, y: 1.2814759, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2004969656}
@@ -1911,7 +1846,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247003380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.06, y: 0.9474, z: -0.028161613}
+  m_LocalPosition: {x: 3.77, y: 0.9474, z: -0.028161613}
   m_LocalScale: {x: 1, y: 10.0452, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2035,12 +1970,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324308865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.04, y: 3.68, z: 0.032697648}
+  m_LocalPosition: {x: 1.98, y: 3.54, z: 0.032697648}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1324308868
 BoxCollider2D:
@@ -2280,9 +2215,9 @@ RectTransform:
   m_Father: {fileID: 300575177}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 419, y: -129}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 404, y: 967}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568494294
@@ -2339,7 +2274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 732}
+  m_AnchoredPosition: {x: 0, y: 631}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1570266470
@@ -2732,10 +2667,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickForce: 5
-  kickForceBoostMultiplier: 2.5
-  dragSpeed: 10
-  maxSpeed: 10
-  speedBoostMultiplier: 1.5
+  kickForceBoostMultiplier: 7
+  dragSpeed: 14
+  maxSpeed: 14
+  speedBoostMultiplier: 5
   timerChangespeed: {fileID: 1701911677}
   timerDoubleScore: {fileID: 1568494292}
   timersliderSpeed: {fileID: 1701911679}
@@ -2777,9 +2712,9 @@ RectTransform:
   m_Father: {fileID: 300575177}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 252, y: 988.00006}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 252, y: -103.99988}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1627718346
@@ -3229,9 +3164,9 @@ RectTransform:
   m_Father: {fileID: 300575177}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -129}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 967}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1701911679
@@ -3577,6 +3512,8 @@ MonoBehaviour:
   highScore: 0
   ballImg: {fileID: 1570266468}
   bgImg: {fileID: 300575178}
+  footballImg: {fileID: 21300000, guid: 49fde9d3263d2fc47812c6f46f994276, type: 3}
+  footballBgImg: {fileID: 21300000, guid: 56893eb41eb04ab46bb36bed542fdb78, type: 3}
   basketballImg: {fileID: 21300000, guid: dedd06294533906478425b8b8e2e112d, type: 3}
   basketballBgImg: {fileID: 21300000, guid: 2e914599c0bff454a90b2fbfa2609642, type: 3}
   tennisBallImg: {fileID: 21300000, guid: 5f821365ec38d0e449e45ac850f4e3b1, type: 3}
@@ -3598,6 +3535,13 @@ MonoBehaviour:
   americanfootballSound: {fileID: 1740071376}
   volleyballSound: {fileID: 1740071375}
   pingpongSound: {fileID: 1740071374}
+  Baseball_purchased: 0
+  AmericanFootball_purchased: 0
+  Volleyball_purchased: 0
+  Pingpong_purchased: 0
+  X2live_purchased: 0
+  X5live_purchased: 0
+  X10live_purchased: 0
 --- !u!4 &1740071373
 Transform:
   m_ObjectHideFlags: 0
@@ -3606,7 +3550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740071368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8911226, y: 0.13220574, z: -0.58772665}
+  m_LocalPosition: {x: -0.04, y: 0.13220574, z: -0.58772665}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4077,9 +4021,9 @@ RectTransform:
   m_Father: {fileID: 300575177}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 430, y: -979}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 415, y: 117}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768565136
@@ -4382,9 +4326,9 @@ RectTransform:
   m_Father: {fileID: 300575177}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 987}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -104.99994}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1961631122
@@ -4526,9 +4470,9 @@ RectTransform:
   m_Father: {fileID: 300575177}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -250, y: 989}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -250, y: -103}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1990299579
@@ -4728,12 +4672,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 2160, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
