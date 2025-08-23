@@ -18,8 +18,8 @@ public class BallController : MonoBehaviour
     private float defaultMaxSpeed;
     public GameObject timerChangespeed;
     public GameObject timerDoubleScore;
-  //  public Timer timersliderSpeed;
-   // public Timer timersliderscore;
+    public Timer timersliderSpeed;
+    public Timer timersliderscore;
     public GameManager gamemanager;
     public AudioSource ballKick;
     public AudioSource loselifesound;
@@ -111,7 +111,30 @@ public class BallController : MonoBehaviour
         }
     }
 
-
+    void OnTriggerEnter2D(Collider2D other){
+        
+        if(other.CompareTag("ScoreBooster")){
+            itemsound.Play();
+            gamemanager.DoubleScore();
+            other.gameObject.SetActive(false);
+            timerDoubleScore.SetActive(true);
+            if(timersliderscore != null){
+                timersliderscore.ActiveTimer();
+            }
+        }
+        else if (other.CompareTag("SpeedChanger")){
+            itemsound.Play();
+            rb.velocity *=speedBoostMultiplier;
+            isSpeedBoosted=true;
+            maxSpeed*=speedBoostMultiplier;
+            StartCoroutine(ResetSpeedBoost(5f));
+            other.gameObject.SetActive(false);
+            timerChangespeed.SetActive(true);
+            if(timersliderSpeed != null){
+                timersliderSpeed.ActiveTimer();
+            }
+        }
+    }
     IEnumerator ResetSpeedBoost(float duration){
 
         yield return new WaitForSeconds(duration);
